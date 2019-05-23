@@ -1,22 +1,16 @@
 const {Command, flags} = require('@oclif/command')
-const request = require('request-promise')
+const {getWeather} = require('../utils/weather');
+const chalk = require('chalk');
 
 class WeatherCommand extends Command {
   async run() {
     const {flags} = this.parse(WeatherCommand)
     try {
-      const weatherResults = await request({
-        method: 'get',
-        url: 'https://api.openweathermap.org/data/2.5/weather',
-        qs: {
-          q: `${flags.city}`,
-          APPID: flags.apiKey
-        },
-        json: true
-      });
-      this.log(`${flags.city} weather details: 
-        Temp: ${weatherResults.main.temp}
-        Description: ${weatherResults.weather[0].description}
+      const weatherResults = await getWeather(flags.city, flags.apiKey)
+      
+      this.log(`The weather in ${chalk.bold.green(flags.city)} is: 
+        Temp: ${chalk.bold.yellow(weatherResults.main.temp)}
+        Description: ${chalk.bold.yellow(weatherResults.weather[0].description)}
       `);
     } catch (error) {
       this.error(error.error.message)
