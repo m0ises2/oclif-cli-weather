@@ -24,8 +24,8 @@ Extra documentation goes here
 `
 
 WeatherCommand.flags = {
-  city: flags.string({char: 'c', description: 'The city to look for the forecast'}),
-  apiKey: flags.string({description: 'apiKey need for weatherAPI'}),
+  city: flags.string({required: true, char: 'c', description: 'The city to look for the forecast'}),
+  apiKey: flags.string({required: true, description: 'apiKey need for weatherAPI'}),
 }
 
 module.exports = WeatherCommand
