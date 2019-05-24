@@ -32,6 +32,7 @@ USAGE
 * [`weather bye`](#weather-bye)
 * [`weather hello`](#weather-hello)
 * [`weather help [COMMAND]`](#weather-help-command)
+* [`weather redis:clear`](#weather-redisclear)
 * [`weather weather`](#weather-weather)
 
 ## `weather bye`
@@ -88,19 +89,37 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src\commands\help.ts)_
 
-## `weather weather`
+## `weather redis:clear`
 
 Describe the command here
 
 ```
 USAGE
-  $ weather weather
+  $ weather redis:clear
 
 OPTIONS
   -n, --name=name  name to print
 
 DESCRIPTION
   ...
+  Extra documentation goes here
+```
+
+_See code: [src\commands\redis\clear.js](https://github.com/m0ises2/weather-cli/blob/v0.1.0/src\commands\redis\clear.js)_
+
+## `weather weather`
+
+Get weather for a given city
+
+```
+USAGE
+  $ weather weather
+
+OPTIONS
+  -c, --city=city  (required) The city to look for the forecast
+  --apiKey=apiKey  (required) apiKey need for weatherAPI
+
+DESCRIPTION
   Extra documentation goes here
 ```
 
